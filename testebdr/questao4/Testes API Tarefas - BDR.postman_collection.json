@@ -1,0 +1,203 @@
+{
+	"id": "2e0bde14-0aff-65e2-7152-1bd188dea886",
+	"name": "Testes API Tarefas - BDR",
+	"description": "",
+	"order": [
+		"48f51e0f-2d24-425a-c7d4-5174265914ed",
+		"ed9ef3f3-1777-8d29-d187-ccd8055bf06a",
+		"160feb95-c286-af7c-7588-65e53eb44c9a",
+		"9b863e6a-6e87-43b6-fd11-de970c8c4e41",
+		"30ee140c-78ae-edf6-cb3c-e853f0176807",
+		"fe7dc371-5d8c-c2dc-fe5b-259090fc75b4"
+	],
+	"folders": [],
+	"timestamp": 1480822415914,
+	"owner": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "160feb95-c286-af7c-7588-65e53eb44c9a",
+			"headers": "",
+			"url": "http://testebdr.dev/tarefas/5",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "descricao",
+					"value": "Ela possui uma prioridade alta e foi alterada",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Body matches string\"] = responseBody.has(\"sucesso\");",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480824190881,
+			"name": "Alteração de tarefa",
+			"description": "",
+			"collectionId": "2e0bde14-0aff-65e2-7152-1bd188dea886"
+		},
+		{
+			"id": "30ee140c-78ae-edf6-cb3c-e853f0176807",
+			"headers": "",
+			"url": "http://testebdr.dev/tarefas",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "titulo",
+					"value": "Nova Tarefa",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				},
+				{
+					"key": "descricao",
+					"value": "Prioridade mediana",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				},
+				{
+					"key": "prioridade",
+					"value": "3",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Body matches string\"] = responseBody.has(\"sucesso\");",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480822762151,
+			"name": "Nova Tarefa",
+			"description": "",
+			"collectionId": "2e0bde14-0aff-65e2-7152-1bd188dea886"
+		},
+		{
+			"id": "48f51e0f-2d24-425a-c7d4-5174265914ed",
+			"headers": "",
+			"url": "http://testebdr.dev/tarefas/4",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "titulo",
+					"value": "Teste editado",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				},
+				{
+					"key": "descricao",
+					"value": "Tarefa teste editado",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var jsonData = JSON.parse(responseBody);\ntests[\"Check ID\"] = jsonData.tarefa.id === \"4\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480824023817,
+			"name": "Busca por ID",
+			"description": "",
+			"collectionId": "2e0bde14-0aff-65e2-7152-1bd188dea886"
+		},
+		{
+			"id": "9b863e6a-6e87-43b6-fd11-de970c8c4e41",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://testebdr.dev/tarefas/4",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "tests[\"Body matches string\"] = responseBody.has(\"sucesso\");",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480822772694,
+			"name": "Alteração de tarefa",
+			"description": "",
+			"collectionId": "2e0bde14-0aff-65e2-7152-1bd188dea886",
+			"rawModeData": "{\n\t\"prioridade\": 2\n}"
+		},
+		{
+			"id": "ed9ef3f3-1777-8d29-d187-ccd8055bf06a",
+			"headers": "",
+			"url": "http://testebdr.dev/tarefas/1",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "titulo",
+					"value": "Teste editado",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				},
+				{
+					"key": "descricao",
+					"value": "Tarefa teste editado",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var jsonData = JSON.parse(responseBody);\ntests[\"Count\"] = jsonData.tarefas.length > 0;\n\nvar max = \ntests[\"Ordenação\"] = jsonData.tarefas.length > 0;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480824193135,
+			"name": "Busca de tarefas",
+			"description": "",
+			"collectionId": "2e0bde14-0aff-65e2-7152-1bd188dea886"
+		},
+		{
+			"id": "fe7dc371-5d8c-c2dc-fe5b-259090fc75b4",
+			"headers": "",
+			"url": "http://testebdr.dev/tarefas/3",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "titulo",
+					"value": "Teste editado",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				},
+				{
+					"key": "descricao",
+					"value": "Tarefa teste editado",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Body matches string\"] = responseBody.has(\"sucesso\");",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480824149983,
+			"name": "Remoção de tarefa",
+			"description": "",
+			"collectionId": "2e0bde14-0aff-65e2-7152-1bd188dea886"
+		}
+	]
+}
